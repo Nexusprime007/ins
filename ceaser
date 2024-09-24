@@ -1,0 +1,26 @@
+Q. Write a program to implement following. 
+1) Ceaser Cipher 
+
+def encryption(pt,key):
+    list1='abcefghijklmnopqrstuvwxyz'
+    en = ''
+    for i in pt.lower():
+        k=(list1.index(i)+key)%26
+        en+=list1[k]
+        print("Encrypted Text is : ",en)
+pt=input("Enter Plain Text : ")
+key=int(input("Enter Key : "))
+encryption(pt,key)
+
+def decryption(pt,key):
+    list2='abcefghijklmnopqrstuvwxyz'
+    de = ''
+    for i in pt.lower():
+        k1=(list2.index(i)-key)%26
+        de+=list2[k1]
+        print("Decrypted Text is : ",de)
+pt=input("Enter Plain Text : ")
+key=int(input("Enter Key : "))
+decryption(pt,key)
+
+
