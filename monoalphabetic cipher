@@ -1,0 +1,24 @@
+2) monoalphabetic cipher 
+def mono(pt):
+    al='abcdefghijklmnopqrstuvwxyz'
+    key='bcdefghijklmnopqrstuvwxyza'
+    en=''
+    for j in pt.lower():
+        for i in al:
+            if i==j:
+                en+=key[al.index(i)]
+                print("Encrypted Text is - ",en)
+pt=input("Enter Plain Text ")
+mono(pt)
+
+def mono(pt):
+    al='abcdefghijklmnopqrstuvwxyz'
+    key='bcdefghijklmnopqrstuvwxyza'
+    de=''
+    for j in pt.lower():
+        for i in al:
+            if i==j:
+                de+=al[key.index(i)]
+                print("Decrypted Text is - ",de)
+pt=input("Enter Plain Text ")
+mono(pt)
