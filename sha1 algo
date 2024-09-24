@@ -1,0 +1,33 @@
+Practical No: 8
+Aim: write a program to implement SHA1 algorithm to compute the message digest
+import hashlib
+def filecheck(filename):
+    hash1=hashlib.sha1()
+    with open(filename,'rb') as open_file:
+        content=open_file.read()
+        hash1.update(content)
+    print(hash1.hexdigest)
+
+def passcheck(pw):
+    hash1=hashlib.sha1(pw.encode('utf-8'))
+    print ("your sha1 password is",hash1.hexdigest())
+print("__SHA1__")
+print("1 file_check \n2. password_check")
+choice=int(input("please enter your choice:"))
+if(choice==1):
+    print("File_check")
+    fn='hello.txt'
+    filecheck(fn)
+elif(choice==2):
+    print("Password check")
+    pw=input("Enter a password")
+    passcheck(pw)
+else:
+    print("wrong choice")
+hello.txt 
+
+Output – 
+
+ 
+ 
+
