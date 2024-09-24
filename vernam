@@ -1,0 +1,30 @@
+\\ Vernam cipher:
+def vernem_encrypt(pt,key):
+    alpha = "abcdefghijklmnopqrstuvwxyz"
+    pt = pt.replace(" ","")
+    en = ""
+    for i in range(len(key)):
+        c = alpha.index(pt[i]) ^ alpha.index(key[i])
+        en += alpha[c%26]
+    return en
+
+def vernem_decrypt(ct,key):
+    alpha = "abcdefghijklmnopqrstuvwxyz"
+    de = ""        
+    for i in range(len(key)):
+        c = alpha.index(ct[i]) ^ alpha.index(key[i])
+        if(c > 20):
+            de += alpha[abs(c-26)%26]
+        else:
+            de += alpha[c%26]
+    return de
+
+pt = input("Enter Plain Text : ")
+key = input("Enter key : " )
+if(len(pt)==len(key)):
+    ct = vernem_encrypt(pt,key)
+    print("Encrypted Text : ",ct)
+    de = vernem_decrypt(ct,key)
+    print("Decrypted Text : ",de)
+else:
+    print("Key should be of same length")
