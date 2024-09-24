@@ -1,0 +1,64 @@
+Q. Implement the following :
+1)	DES Block Cipher:
+
+from des import DesKey 
+pt= bytes(input("enter plain Text :") ,'utf-8') 
+key=bytes(input("enter Key :") ,'utf-8') 
+k= DesKey(key) 
+k.is_single() 
+en=k.encrypt(pt) 
+print("Encrypted Text :") 
+print(en) 
+de=k.decrypt(en) 
+print("Decrypted Text :") 
+print(de)
+
+o/p:
+
+
+
+
+
+
+2)	AES Block cipher:
+import aes
+pt = input("Enter plain Text: ").encode('utf-8')
+masterkey = input("Enter Key: ").encode('utf-8')
+
+# Convert masterkey from bytes to integer
+masterkey = int.from_bytes(masterkey, byteorder='big')
+pt = int.from_bytes(pt, byteorder='big')
+
+cipher = aes.aes(masterkey, 128)
+
+ct = cipher.enc_once(pt)
+
+print("ct =", ct)
+print("Encrypted text is", hex(aes.utils.arr8bit2int(ct))[2:].zfill(32))
+
+pr = cipher.dec_once(ct)
+print("pr =", pr)
+print("Decrypted text is", hex(aes.utils.arr8bit2int(pr))[2:].zfill(32))
+
+
+
+
+
+
+
+3)	RC4 Block Cipher:
+from arc4 import ARC4
+
+pt = bytes(input("Enter plain Text: "), 'utf-8')
+key = bytes(input("Enter Key: "), 'utf-8')
+
+arc4 = ARC4(key)
+cipher = arc4.encrypt(pt)
+
+print("Encrypted text: ", cipher)
+
+# Decryption
+decipher = arc4.decrypt(cipher)
+
+print("Decrypted text: ", decrypted_text)
+
